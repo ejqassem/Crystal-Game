@@ -1,53 +1,61 @@
-var randomNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+var crystalNumber1;
+var crystalNumber2;
+var crystalNumber3;
+var crystalNumber4;
+var storedNumber = 0;
+var clickedNumber = 0;
+var wins = 0;
+var losses = 0;
+
+var randomNumber = Math.floor(Math.random() * (102)) + 19;
 $("#randomNumber").html(randomNumber);
 
-var crystalNumber1 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-$("#crystal1").val(crystalNumber1);
-console.log(crystalNumber1);
-
-var crystalNumber2 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-$("#crystal1").val(crystalNumber2);
-console.log(crystalNumber2);
-
-var crystalNumber3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-$("#crystal1").val(crystalNumber3);
-console.log(crystalNumber3);
-
-var crystalNumber4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-$("#crystal1").val(crystalNumber4);
-console.log(crystalNumber4);
+$("#storedNumber").html(storedNumber);
 
 
-var storedNumber = 0;
+function generateRandomCrystal(variableName, id) {
+  variableName = Math.floor(Math.random() * (12)) +1;
+  $(id).val(variableName);
+  console.log(variableName);
+}
 
-//use a class element to grab all crystals
-//use $(this).val() to retrieve assigned value
-//parseInt() grabbed value
-//storedNumber += grabbed value
+function restartGame() {
+  storedNumber = 0;
+  clickedNumber = 0;
+
+  $("#randomNumber, #storedNumber").empty();
+
+  randomNumber = Math.floor(Math.random() * (102)) + 19;
+  $("#randomNumber").html(randomNumber);
+
+  generateRandomCrystal(crystalNumber1, "#crystal1");
+  generateRandomCrystal(crystalNumber2, "#crystal2");
+  generateRandomCrystal(crystalNumber3, "#crystal3");
+  generateRandomCrystal(crystalNumber4, "#crystal4");
+}
+
+generateRandomCrystal(crystalNumber1, "#crystal1");
+generateRandomCrystal(crystalNumber2, "#crystal2");
+generateRandomCrystal(crystalNumber3, "#crystal3");
+generateRandomCrystal(crystalNumber4, "#crystal4");
 
 
-$("#crystal1").on("click", function() {
-    storedNumber += crystalNumber1;
+$(".crystals").on("click", function() {
+    clickedNumber = $(this).val();
+    clickedNumber = parseInt(clickedNumber);
+    storedNumber += clickedNumber;
     $("#storedNumber").html(storedNumber);
+
+    if (storedNumber > randomNumber) {
+      alert("Sucks to suck");
+      losses++;
+      $("#losses").html(losses);
+      restartGame();
+    }
+    else if( storedNumber === randomNumber) {
+      alert("You won the game");
+      wins++;
+      $("#wins").html(wins);
+      restartGame();
+    }
 })
-
-$("#crystal2").on("click", function() {
-    storedNumber += crystalNumber2;
-    $("#storedNumber").html(storedNumber);
-})
-
-$("#crystal3").on("click", function() {
-    storedNumber += crystalNumber3;
-    $("#storedNumber").html(storedNumber);
-})
-
-$("#crystal4").on("click", function() {
-    storedNumber += crystalNumber4;
-    $("#storedNumber").html(storedNumber);
-})
-
-
-//create conditional statement if (storedNumber === randomNumber) {
-// you win game
-//}
-//else if (storedNumber > randomNumber)
