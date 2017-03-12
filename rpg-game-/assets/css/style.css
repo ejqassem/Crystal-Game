@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+@font-face {
+  font-family: "DBZ font";
+  src: url("saiyan-sans/Saiyan-Sans.ttf");
+}
+
+.jumbotron {
+  background-image: url("../images/DBZ-background2.jpg");
+  background-size: cover;
+  height: 850px;
+  min-width: 100%;
+  margin-bottom: 0px;
+}
+#header {
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: 120px;
+
+}
+#header1 {
+  font-family: "DBZ font";
+  color: #ffde13;
+}
+
+#header2 {
+  font-family: "DBZ font";
+  color: #c9071f;
+}
+
+#header3 {
+  font-family: "DBZ font";
+  color: black;
+  text-shadow: 1px 0 0 red, 0 -1px 0 red, 0 1px 0 red, -1px 0 0 red;
+}
+
+#second-header {
+  font-family: "DBZ font";
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: 60px;
+}
+
+#selectHero {
+  text-align: center;
+  font-family: "DBZ font";
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: 35px;
+}
+
+#selectEnemy {
+  text-align: center;
+  font-family: "DBZ font";
+  color: white;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: 35px;
+}
+
+img:hover {
+  box-shadow: 0 0 10px red;
+}
+
+#startGame {
+  font-family: "DBZ font";
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+a {
+  font-family: "DBZ font";
+  color: black;
+}
+
+
+#gokuHP {
+  width: 50%;
+}
+
+#vsHeading {
+  position: absolute;
+  bottom: -225px;
+  right: 80px;
+  font-family: "DBZ font";
+  color: black;
+  text-shadow: 1px 0 0 red, 0 -1px 0 red, 0 1px 0 red, -1px 0 0 red;
+}
